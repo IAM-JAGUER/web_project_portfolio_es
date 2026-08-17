@@ -1,0 +1,631 @@
+/* ==========================================================================
+   Fuentes locales
+   ========================================================================== */
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archivo Black";
+  src: url("../fonts/ArchivoBlack-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+:root {
+  --color-bg: #121218;
+  --color-surface: #191921;
+  --color-border: #2a2a35;
+  --color-text: #f5f5f7;
+  --color-text-muted: #a6a6b3;
+  --color-accent: #6d6dff;
+  --color-accent-soft: #9a9aff;
+
+  --color-badge-red: #e14b3c;
+  --color-badge-blue: #3b6fe0;
+  --color-badge-yellow: #e0b23b;
+  --color-badge-orange: #c9532f;
+  --color-badge-dark: #232330;
+
+  --font-body: "Open Sans", Arial, Helvetica, sans-serif;
+  --font-display: "Archivo Black", Arial, Helvetica, sans-serif;
+
+  --container-width: 1160px;
+  --container-padding: 40px;
+}
+
+/* ==========================================================================
+   Reinicio ligero y base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  position: relative;
+  overflow-x: hidden;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding) * 2);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0 0 40px;
+}
+
+/* ==========================================================================
+   Fondo brillante (degradados radiales relativos al centro de la pantalla)
+   ========================================================================== */
+
+.glow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glow--top {
+  background: radial-gradient(
+    circle at center,
+    rgba(109, 109, 255, 0.35) 0%,
+    rgba(109, 109, 255, 0) 70%
+  );
+  transform: translate(calc(-50% - 420px), calc(-50% - 380px));
+}
+
+.glow--bottom {
+  background: radial-gradient(
+    circle at center,
+    rgba(59, 111, 224, 0.3) 0%,
+    rgba(59, 111, 224, 0) 70%
+  );
+  transform: translate(calc(-50% + 460px), calc(-50% + 420px));
+}
+
+/* ==========================================================================
+   Encabezado / navegación
+   ========================================================================== */
+
+.header {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.header__logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+}
+
+.header__list {
+  display: flex;
+  gap: 32px;
+}
+
+.header__link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.header__link:hover,
+.header__link:focus-visible {
+  color: var(--color-accent-soft);
+}
+
+/* ==========================================================================
+   Perfil
+   ========================================================================== */
+
+.profile {
+  padding: 96px 0 80px;
+}
+
+.profile__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+.profile__info {
+  max-width: 560px;
+}
+
+.profile__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+
+.profile__subtitle {
+  display: flex;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-accent-soft);
+  margin: 0 0 24px;
+}
+
+.profile__separator {
+  color: var(--color-border);
+}
+
+.profile__text {
+  color: var(--color-text-muted);
+  font-size: 16px;
+  margin: 0 0 32px;
+}
+
+.profile__cv-link {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 16px;
+  padding-bottom: 6px;
+  background-image: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    var(--color-badge-blue) 100%
+  );
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  transition: background-size 0.2s ease, color 0.2s ease;
+}
+
+.profile__cv-link:hover,
+.profile__cv-link:focus-visible {
+  color: var(--color-accent-soft);
+  background-size: 100% 6px;
+}
+
+.profile__photo {
+  flex-shrink: 0;
+  width: 420px;
+  height: 420px;
+  border-radius: 24px;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   Habilidades
+   ========================================================================== */
+
+.skills {
+  padding: 80px 0;
+}
+
+.skills__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.skills__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 96px;
+}
+
+.skills__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.skills__item:hover .skills__badge {
+  transform: translateY(-4px);
+}
+
+.skills__badge--red {
+  background-color: var(--color-badge-red);
+}
+
+.skills__badge--blue {
+  background-color: var(--color-badge-blue);
+}
+
+.skills__badge--yellow {
+  background-color: var(--color-badge-yellow);
+  color: #1c1c22;
+}
+
+.skills__badge--orange {
+  background-color: var(--color-badge-orange);
+}
+
+.skills__badge--dark {
+  background-color: var(--color-badge-dark);
+  border: 1px solid var(--color-border);
+}
+
+.skills__name {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ==========================================================================
+   Proyectos destacados
+   ========================================================================== */
+
+.projects {
+  padding: 80px 0;
+}
+
+.projects__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.card {
+  flex: 1 1 calc(50% - 16px);
+  min-width: 280px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.6);
+}
+
+.card__image-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-height: 160px;
+  overflow: hidden;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__image-wrap--code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent);
+}
+
+.card__icon {
+  width: 64px;
+  height: 64px;
+}
+
+/* Velo: capa invisible con degradado para que los iconos resalten */
+.card__veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 45%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+}
+
+.card__tag {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.card__tag--blue {
+  background-color: var(--color-badge-blue);
+}
+
+.card__tag--yellow {
+  background-color: var(--color-badge-yellow);
+  color: #1c1c22;
+}
+
+.card__title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 18px;
+  margin: 20px 24px 8px;
+}
+
+.card__text {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 0 24px 24px;
+}
+
+/* ==========================================================================
+   Contacto
+   ========================================================================== */
+
+.contact {
+  padding: 80px 0 96px;
+}
+
+.contact__container {
+  text-align: center;
+}
+
+.contact__text {
+  color: var(--color-text-muted);
+  margin: 0 0 20px;
+}
+
+.contact__email {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 24px;
+  padding-bottom: 6px;
+  background-image: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    var(--color-badge-blue) 100%
+  );
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  transition: background-size 0.2s ease, color 0.2s ease;
+}
+
+.contact__email:hover,
+.contact__email:focus-visible {
+  color: var(--color-accent-soft);
+  background-size: 100% 6px;
+}
+
+/* ==========================================================================
+   Pie de página
+   ========================================================================== */
+
+.footer {
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.footer__copy {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.footer__social {
+  display: flex;
+  gap: 16px;
+}
+
+.footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer__social-link:hover,
+.footer__social-link:focus-visible {
+  color: var(--color-accent-soft);
+  border-color: var(--color-accent);
+}
+
+/* ==========================================================================
+   Tabletas — hasta 1023px
+   ========================================================================== */
+
+@media (max-width: 1023px) {
+  :root {
+    --container-padding: 32px;
+  }
+
+  .profile {
+    padding: 64px 0 56px;
+  }
+
+  .profile__container {
+    gap: 40px;
+  }
+
+  .profile__title {
+    font-size: 44px;
+  }
+
+  .profile__photo {
+    width: 280px;
+    height: 280px;
+  }
+
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+
+  .skills,
+  .projects,
+  .contact {
+    padding: 56px 0;
+  }
+
+  .glow {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+/* ==========================================================================
+   Móvil — hasta 767px
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  :root {
+    --container-padding: 20px;
+  }
+
+  .header__list {
+    gap: 20px;
+  }
+
+  .header__link {
+    font-size: 13px;
+  }
+
+  .profile__container {
+    flex-direction: column-reverse;
+    gap: 28px;
+  }
+
+  .profile__info {
+    max-width: none;
+  }
+
+  .profile__title {
+    font-size: 32px;
+  }
+
+  .profile__subtitle {
+    font-size: 16px;
+  }
+
+  .profile__separator {
+    display: none;
+  }
+
+  .profile__photo {
+    width: 100%;
+    height: 280px;
+  }
+
+  .projects__list {
+    flex-direction: column;
+  }
+
+  .card {
+    flex: 1 1 100%;
+  }
+
+  .contact__email {
+    font-size: 20px;
+  }
+
+  .footer__container {
+    flex-direction: column;
+    text-align: center;
+  }
+}

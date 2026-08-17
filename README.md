@@ -35,4 +35,4 @@ tres resoluciones principales: 1440px (escritorio), 768px (tableta) y 320px
 
 ## Enlace a GitHub Pages
 
-https://IAM-JAGUER.github.io/web_project_potrfolio_es/
+https://IAM-JAGUER.github.io/web_project_portfolio_es/

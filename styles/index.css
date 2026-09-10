@@ -440,6 +440,66 @@ img {
   margin: 0 24px 24px;
 }
 
+.card__link
+ {
+  color: var(--color-text-muted);
+  margin: 24px 24px 0px 0px;
+  }
+  
+  .card__link:nth-child(2n+1){
+  color: var(--color-accent);
+}
+
+.card__footer
+ {
+  font-size: 14px;
+  margin: 24px;
+}
+
+/***** Social *****/
+.social {
+  padding: 5rem 0;
+}
+
+.social__container {
+  text-align: center;
+}
+
+.social__mail {
+  margin-top: 1rem;
+  color: var(--color-accent);
+}
+
+.social__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.social__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  font-size: 1.4rem;
+  text-decoration: none;
+
+  border-radius: 50%;
+
+  transition: transform 0.2s ease;
+}
+
+.social__link:hover {
+  transform: translateY(-4px);
+}
+
+
+
 /* ==========================================================================
    Contacto
    ========================================================================== */
